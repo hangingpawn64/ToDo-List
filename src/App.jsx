@@ -14,6 +14,7 @@ function App() {
   const [todos, setTodos] = useState([]);
   const [listening, setListening] = useState(false);
   const [isInitialLoad, setIsInitialLoad] = useState(true);
+  const [showCompleted, setShowCompleted] = useState(true);
 
 
   useEffect(() => {
@@ -30,11 +31,6 @@ function App() {
     }
     localStorage.setItem("todos", JSON.stringify(todos));
   }, [todos]);
-   
-  const saveToLS = () => {
-    localStorage.setItem("todos", JSON.stringify(todos))
-  }
-  
 
   const handleAdd = () => {
     if (todo.trim() === "") {
@@ -110,11 +106,13 @@ function App() {
     setListening(false);
   };
 
+  const visibleTodos = todos.filter((item) => showCompleted || !item.isCompleted);
+
   return (
     <>
       {<Header />}
       {
-        <div className="container flex flex-col items-center justify-center min-h-screen w-[90vw] max-w-[90vw] sm:w-full mx-auto sm:p-6 md:p-8 lg:p-10 bg-transparent">
+        <div className="container flex flex-col items-center justify-start min-h-screen w-[90vw] max-w-[90vw] sm:w-full mx-auto sm:p-6 md:p-8 lg:p-10 bg-transparent">
           <div className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4 sm:mb-6 text-center">You Got This</div>
 
           <div className="relative group flex flex-col items-center w-full max-w-full">
@@ -150,16 +148,26 @@ function App() {
               </button>
             </div>
           </div>
-          <div className="time text-white flex justify-center p-2 sm:p-3 text-base sm:text-lg md:text-xl">
+          <div className="time w-full flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-12 text-white p-2 sm:p-3 text-base sm:text-lg md:text-xl">
             <Time />
+            <label className="flex items-center gap-2 text-xs sm:text-sm md:text-base cursor-pointer select-none">
+              <input
+                type="checkbox"
+                checked={showCompleted}
+                onChange={() => setShowCompleted((prev) => !prev)}
+                className="checkbox"
+                
+              />
+              Show Completed
+            </label>
           </div>
           <div className="todos flex flex-col rounded-3xl w-full max-w-full sm:max-w-lg md:max-w-xl lg:max-w-2xl bg-[#2b6894] mt-2 sm:mt-4 p-2 sm:p-4">
-            {todos.length === 0 && (
+            {visibleTodos.length === 0 && (
               <div className="notodos m-5 w-full text-center text-base sm:text-lg md:text-xl font-extralight opacity-70">
                 Add Shit to do!
               </div>
             )}
-            {todos.map((item) => {
+            {visibleTodos.map((item) => {
               return (
                 <div
                   key={item.id}
