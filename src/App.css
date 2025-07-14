@@ -28,8 +28,9 @@ background: linear-gradient(to right, #3A6073, #16222A); /* W3C, IE 10+/ Edge, F
 
    .addButton:active {
      /* Styles applied when the button is clicked */
-     background-color: #122b3d;
+     border: 1px solid rgb(0, 0, 61);
      color: white;
+     transform: scale(1.03);
    }
 
 .todos{
@@ -63,7 +64,6 @@ background: linear-gradient(to right, #3A6073, #16222A); /* W3C, IE 10+/ Edge, F
   width: 1.5rem;
   height: 1.5rem;
   cursor: pointer;
-  transition: background 0.2s, border 0.2s;
   position: relative;
   display: inline-block;
 }
@@ -84,3 +84,30 @@ background: linear-gradient(to right, #3A6073, #16222A); /* W3C, IE 10+/ Edge, F
   transform: rotate(45deg);
 }
 
+.showCompleted{
+  background-color: #0d2e3f;
+  border: 2px solid #3A6073;
+  border-radius: 2rem;
+  width: 14rem;
+  height: 2rem;
+  transition: all 1s ease;
+  transform: scale(1);
+}
+.showCompleted:hover{
+  transform: scale(1.05) perspective(1px)
+}
+
+.clearbtn{
+  background-color: #0d2e3f;
+  border: 2px solid #3A6073;
+  border-radius: 2rem;
+  width: 8rem;
+  height: 2rem;
+  cursor: pointer;
+  transition: all 1s ease;
+  transform: scale(1);
+}
+
+.clearbtn:hover{
+  transform: scale(1.05) perspective(1px)
+}
