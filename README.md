@@ -33,6 +33,11 @@ For Gradients: [https://uigradients.com/]
 For JavaScript (Tutorial): CodeWithHarry
 
 ## Website Demo
+[noTaska](/src/assets/noTasks-Tabview.jpg)
+[FinishedTasks](/src/assets/FinishedTasks.jpg)
+[LightMode](/src/assets/lightMode.jpg)
+[DarkMode](/src/assets/darkMode.jpg)
+[mobileView](/src/assets/mobileView.jpg)
 
-[DarkMode](./src/assets.darkMode)>
+
 
