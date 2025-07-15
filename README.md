@@ -1,13 +1,38 @@
-# React + Vite
+# ToDo-List
 
-<i>in progress</i><br>
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Get It Together - React To-Do List with Voice Input Get It Together is a stylish, responsive To-Do List web app built with React
 
-Currently, two official plugins are available:
+- this webpage is hosted [here!](https://hangingpawn64.github.io/ToDo-List/)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-## Expanding the ESLint configuration
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Features:
+
+- Modern responsive UI 
+- Local Storage for persistent tasks 
+- Task editing & deletion 
+- Speech-to-text task entry
+- Dynamic time display
+- Responsive for all Devices
+- Dark/Light/Gradient theme options
+
+## Features to be added:
+- Reminder/Alerts: Sending automated mails once logged in, and due date/time set.
+- Login Features (use APIs) & Database: So the website can be opened on any device, users can log in, and the To-Dos can be viewed anywhere, anytime.
+
+
+## Acknowledgements
+
+ - This Design is Mainly Inspired by [Tushar Nankani's WebApp](https://github.com/tusharnankani/ToDoList) , and is just recreated and modified by me to learn a few skills.
+
+## References
+Theme By - [Tushar Nankani](https://github.com/tusharnankani/ToDoList)
+For Fonts: [Google Fonts](https://fonts.google.com/)
+For Icons: [Lucide-React](https://lucide.dev/guide/packages/lucide-react)
+For Gradients: [https://uigradients.com/]
+For JavaScript (Tutorial): CodeWithHarry
+
+## Website Demo
+
+<img src(./src/assets.darkMode)>
+
