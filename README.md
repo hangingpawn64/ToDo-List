@@ -40,4 +40,5 @@ For JavaScript (Tutorial): CodeWithHarry
 ![mobileView](/src/assets/mobileView.jpg)
 
 
-
+## Author - Akshit Tupkar
+[LinkedIn](www.linkedin.com/akshittupkar64)
