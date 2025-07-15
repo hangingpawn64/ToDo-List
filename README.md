@@ -34,5 +34,5 @@ For JavaScript (Tutorial): CodeWithHarry
 
 ## Website Demo
 
-<img src(./src/assets.darkMode)>
+[DarkMode](./src/assets.darkMode)>
 
