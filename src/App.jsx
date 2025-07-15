@@ -110,68 +110,68 @@ function App() {
     <>
       {<Header />}
       {
-        <div className="container flex flex-col items-center justify-start min-h-screen w-[100vw] max-w-[100vw] sm:w-full mx-auto sm:p-6 md:p-8 lg:p-8 bg-transparent">
-          <div className="text-3xl pb-8 sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4 sm:mb-6 text-center">
+        <div className="container flex flex-col items-center justify-start min-h-screen w-full max-w-full mx-auto px-4 sm:px-6 md:px-8 lg:px-10 bg-transparent overflow-x-hidden">
+          <div className="title text-3xl pb-4 sm:pb-6 md:pb-8 sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-2 sm:mb-4 md:mb-6 text-center">
             You Got This
           </div>
 
           <div className="relative group flex flex-col items-center w-full max-w-full">
-            <div className="addTodo flex flex-col sm:flex-row items-center w-full max-w-2xs sm:max-w-lg md:max-w-xl mx-auto mb-4 gap-2 sm:gap-0">
+            <div className="addTodo flex flex-col sm:flex-row items-center w-full max-w-[95%] sm:max-w-lg md:max-w-xl lg:max-w-2xl mx-auto mb-4 gap-2 sm:gap-0">
               <div className="relative w-full max-w-full">
                 <input
                   onChange={handleChange}
                   value={todo}
-                  className="commit px-4 py-3 sm:py-4 rounded-3xl border-transparent focus:border-gray-300 focus:border transition-all duration-100 text-white w-full bg-[#2b6894] text-base sm:text-lg md:text-xl placeholder:text-gray-200"
+                  className="commit px-3 py-2 sm:py-3 md:py-4 rounded-3xl border-transparent focus:border-gray-300 focus:border transition-all duration-100 text-white w-full bg-[#2b6894] text-sm sm:text-base md:text-lg lg:text-xl placeholder:text-gray-200"
                   type="text"
                   placeholder="Commit a task..."
-                  onKeyDown={(e) => {   //   isse enter se handleAdd() call krliya!!!
+                  onKeyDown={(e) => {
                     if (e.key === "Enter") handleAdd();
                   }}
                 />
                 {/* speech */}
                 <button
                   onClick={startListening}
-                  className={`micButton absolute right-3 top-1/2 -translate-y-1/2 text-white px-2 py-2 rounded-full focus:outline-none focus:ring-2 focus:ring-blue-400 transition-all duration-100 ${
+                  className={`micButton absolute right-8 top-1/2 -translate-y-1/2 text-white px-1 sm:px-2 py-1 sm:py-2 rounded-full focus:outline-none focus:ring-2 focus:ring-blue-400 transition-all duration-100 ${
                     listening ? "opacity-50" : ""
                   }`}
                   disabled={listening}
                   tabIndex={-1}
                   style={{ zIndex: 10 }}
                 >
-                  <Mic className="h-6 w-6 sm:h-7 sm:w-7 md:h-8 md:w-8 cursor-pointer" />
+                  <Mic className="h-4 w-4 sm:h-5 sm:w-5 md:h-6 md:w-6 lg:h-7 lg:w-7 cursor-pointer" />
                   {listening ? "..." : ""}
                 </button>
                 {/* /speech */}
               </div>
               <button
                 onClick={handleAdd}
-                className={`addButton bg-blue-700 text-white py-3 sm:py-4 rounded-3xl mt-2 sm:mt-0 sm:ml-2 border border-white focus:border-white focus:border transition-all duration-100 cursor-pointer text-base sm:text-lg md:text-xl min-w-full sm:min-w-[8rem] md:min-w-[10rem] ${addClicked ? 'ring-1 ring-blue-950 scale-103' : ''}`}
+                className={`addButton bg-blue-700 text-white py-2 sm:py-3 md:py-4 rounded-3xl mt-2 sm:mt-0 sm:ml-2 border border-white focus:border-white focus:border transition-all duration-100 cursor-pointer text-sm sm:text-base md:text-lg lg:text-xl min-w-full sm:min-w-[6rem] md:min-w-[8rem] lg:min-w-[10rem] ${addClicked ? 'ring-1 ring-blue-950 scale-103' : ''}`}
               >
                 I Got This!
               </button>
             </div>
           </div>
-          <div className="time w-full flex flex-col sm:flex-row items-center justify-center sm:gap-12 text-white p-2 sm:p-3 text-base sm:text-lg md:text-xl">
+          <div className="time w-full flex flex-col sm:flex-row items-center justify-center sm:gap-6 md:gap-8 lg:gap-12 text-white p-2 sm:p-3 text-xs sm:text-sm md:text-base lg:text-lg">
             <Time />
-            <label className="showCompleted flex items-center gap-4 text-xs sm:text-sm md:text-base cursor-pointer select-none">
+            <label className="showCompleted flex items-center gap-2 sm:gap-3 md:gap-4 text-xs sm:text-sm md:text-base cursor-pointer select-none pl-2 sm:pl-3 my-2 sm:my-0">
               <input
                 type="checkbox"
                 checked={showCompleted}
                 onChange={() => setShowCompleted((prev) => !prev)}
-                className="checkbox"
+                className="checkbox mr-1 sm:mr-2"
               />
               Show Completed
             </label>
             <button
               onClick={() => setTodos([])}
-              className="clearbtn text-white text-xs sm:text-sm md:text-base font-semibold transition-all duration-100"
+              className="clearbtn text-white text-xs sm:text-sm md:text-base font-semibold transition-all duration-100 my-2 sm:my-0"
             >
               Clear All
             </button>
           </div>
-          <div className="todos flex flex-col rounded-3xl w-full max-w-full sm:max-w-lg md:max-w-xl lg:max-w-2xl bg-[#2b6894] mt-2 sm:mt-4 p-2 sm:p-4">
+          <div className="todos flex flex-col rounded-3xl w-full max-w-full sm:max-w-lg md:max-w-xl lg:max-w-2xl bg-[#2b6894] mt-2 sm:mt-4 p-2 sm:p-3 md:p-4">
             {visibleTodos.length === 0 && (
-              <div className="notodos m-5 w-full text-center text-base sm:text-lg md:text-xl font-extralight opacity-70">
+              <div className="notodos m-3 sm:m-4 md:m-5 w-full text-center text-sm sm:text-base md:text-lg lg:text-xl font-extralight opacity-70">
                 Add Shit to do!
               </div>
             )}
@@ -179,10 +179,10 @@ function App() {
               return (
                 <div
                   key={item.id}
-                  className="todo flex items-center justify-between p-2 sm:p-3 text-white text-base sm:text-lg md:text-2xl my-1 sm:my-2 border-b border-[#0d2e3f] last:border-b-0"
+                  className="todo flex items-center justify-between p-1 sm:p-2 md:p-3 text-white text-xs sm:text-sm md:text-base lg:text-lg my-1 sm:my-2 border-b border-[#0d2e3f] last:border-b-0"
                 >
                   <input
-                    className="checkbox w-6 h-6 sm:w-7 sm:h-7 ml-2 mr-2 sm:ml-4 sm:mr-4 cursor-pointer bg-[#0d2e3f] border-2 border-[#3A6073] rounded-full appearance-none checked:bg-[#0d2e3f] checked:border-[#3A6073] relative"
+                    className="checkbox w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 lg:w-7 lg:h-7 ml-1 mr-1 sm:ml-2 sm:mr-2 md:ml-3 md:mr-3 cursor-pointer bg-[#0d2e3f] border-2 border-[#3A6073] rounded-full appearance-none checked:bg-[#0d2e3f] checked:border-[#3A6073] relative"
                     name={item.id}
                     onChange={handleCheckbox}
                     type="checkbox"
@@ -190,28 +190,24 @@ function App() {
                     id=""
                   />
                   <div
-                    className={
-                      item.isCompleted
-                        ? "line-through opacity-50 flex-1"
-                        : "flex-1"
-                    }
+                    className={`${item.isCompleted ? "line-through opacity-50 flex-1" : "flex-1"} break-words overflow-hidden`}
                   >
                     {item.todo}
                   </div>
-                  <div className="flex buttons h-full">
+                  <div className="flex buttons h-full ml-2">
                     <button
                       onClick={(e) => handleEdit(e, item.id)}
-                      className="editbtn p-2 py-1 text-xs sm:text-sm font-bold text-white rounded-md mx-1 cursor-pointer bg-[#133045dd]"
+                      className="editbtn p-1 sm:p-1.5 md:p-2 text-xs sm:text-sm font-bold text-white rounded-md mx-0.5 sm:mx-1 cursor-pointer bg-[#133045dd]"
                     >
-                      <SquarePen />
+                      <SquarePen className="h-3 w-3 sm:h-4 sm:w-4 md:h-5 md:w-5" />
                     </button>
                     <button
                       onClick={(e) => {
                         handleDelete(e, item.id);
                       }}
-                      className="dltbtn p-2 py-1 text-xs sm:text-sm font-bold text-white rounded-md mx-1 cursor-pointer bg-[#133045dd]"
+                      className="dltbtn p-1 sm:p-1.5 md:p-2 text-xs sm:text-sm font-bold text-white rounded-md mx-0.5 sm:mx-1 cursor-pointer bg-[#133045dd]"
                     >
-                      <Trash2 />
+                      <Trash2 className="h-3 w-3 sm:h-4 sm:w-4 md:h-5 md:w-5" />
                     </button>
                   </div>
                 </div>

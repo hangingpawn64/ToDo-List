@@ -111,3 +111,101 @@ background: linear-gradient(to right, #3A6073, #16222A); /* W3C, IE 10+/ Edge, F
 .clearbtn:hover{
   transform: scale(1.05) perspective(1px)
 }
+
+/* Update the theme styles section at the end of your App.css file */
+
+/* Theme styles */
+.theme-light {
+  color: #16222A; /* Dark text for light theme */
+    background: -webkit-linear-gradient(to right, #FFEFBA, white);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #FFEFBA, white); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.theme-light .Header {
+  color: #16222A; /* Dark text for header in light theme */
+}
+
+/* Make the title visible in light theme but keep buttons white */
+.theme-light .title {
+  color: #16222A; /* Dark text for title in light theme */
+}
+
+.theme-light .todos,
+.theme-light .commit,
+.theme-light .checkbox,
+.theme-light .showCompleted,
+.theme-light .clearbtn {
+  background-color: #3A6073;
+  color: white; /* Keep text white on colored backgrounds */
+}
+
+/* Ensure all buttons have white text in all themes */
+.theme-light button,
+.theme-dark button,
+.theme-gradient button {
+  color: white !important;
+}
+
+/* Override text-white class only for specific elements that need dark text in light theme */
+.theme-light .text-white:not(button):not(.todos):not(.todo):not(.showCompleted):not(.clearbtn) {
+  color: #16222A !important;
+}
+
+.theme-light .todos {
+  color: white; /* Keep todo text white */
+}
+
+.theme-dark {
+  color: white; /* White text for dark theme */
+  background-color: #0a1014; /* Darker background */
+}
+
+.theme-dark .todos,
+.theme-dark .commit,
+.theme-dark .checkbox,
+.theme-dark .showCompleted,
+.theme-dark .clearbtn {
+  background-color: #0d1e29; /* Darker elements for dark theme */
+  color: white;
+}
+
+/* Add these styles at the end of your App.css file */
+
+/* Mobile responsiveness fixes */
+@media (max-width: 640px) {
+  .container {
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+  
+  .commit {
+    width: 100%;
+    font-size: 0.875rem;
+    padding: 0.5rem 1rem;
+  }
+  
+  .addButton {
+    width: 100%;
+    font-size: 0.875rem;
+  }
+  
+  /* Ensure the header stays in a row */
+  .Header {
+    flex-direction: row !important;
+    justify-content: space-between;
+    padding: 0.5rem;
+    width: 100%;
+  }
+  
+  .Header .name {
+    font-size: 0.875rem;
+  }
+  
+  .Header .circle {
+    width: 1.25rem;
+    height: 1.25rem;
+  }
+}
