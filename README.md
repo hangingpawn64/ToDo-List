@@ -42,3 +42,7 @@ For JavaScript (Tutorial): CodeWithHarry
 
 ## Author - Akshit Tupkar
 [LinkedIn](www.linkedin.com/akshittupkar64)
+
+p.s. i won't be adding further changes but feel free to hmu with pull requests :p
+
+
